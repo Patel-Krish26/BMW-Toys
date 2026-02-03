@@ -1,0 +1,211 @@
+/* ---------- BODY & BACKGROUND ---------- */
+body {
+    overflow-x: hidden;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #0a1f44 0%, #000000 100%);
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 30px;
+    padding: 6px 14px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+    .search-box i {
+        color: #ccc;
+        margin-right: 8px;
+        font-size: 14px;
+    }
+
+    .search-box input {
+        background: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        width: 180px;
+        font-size: 14px;
+    }
+
+        .search-box input::placeholder {
+            color: #bbb;
+        }
+
+    .search-box:focus-within {
+        border-color: #1e90ff;
+        box-shadow: 0 0 8px rgba(30,144,255,0.6);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------- HERO IMAGE ---------- */
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+}
+
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(40%);
+        transition: transform 0.5s ease;
+    }
+
+        .hero-image img:hover {
+            transform: scale(1.05);
+        }
+
+/* ---------- HERO OVERLAY TEXT ---------- */
+.hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+    .hero-overlay h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        letter-spacing: 2px;
+        color: #ffffff;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+    }
+
+    .hero-overlay p {
+        font-size: 1.5rem;
+        opacity: 0.9;
+        text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+    }
+
+/* ---------- NAVBAR ---------- */
+.luxury-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 31, 68, 0.7);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+    .luxury-navbar a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s;
+    }
+
+        .luxury-navbar a:hover {
+            color: #0a84ff; /* subtle BMW blue */
+        }
+
+/* ---------- CARDS ---------- */
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(20, 20, 20, 0.8);
+    color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    }
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+    .card-img-top:hover {
+        transform: scale(1.1);
+    }
+
+.card-body h5 {
+    font-weight: 700;
+}
+
+.card-body p {
+    font-size: 1rem;
+    color: #c0c0c0;
+}
+
+
+#intro {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(14px);
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    animation: introFade 1s ease forwards;
+}
+
+.logo-rotate {
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes introFade {
+    from {
+        opacity: 1;
+        backdrop-filter: blur(14px);
+    }
+
+    to {
+        opacity: 0;
+        backdrop-filter: blur(0);
+        visibility: hidden;
+    }
+}
