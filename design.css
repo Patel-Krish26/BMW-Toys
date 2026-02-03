@@ -1,42 +1,41 @@
-/* ---------- BODY & BACKGROUND ---------- */
+/* =========================
+   BODY & BACKGROUND
+========================= */
 body {
-    overflow-x: hidden;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(180deg, #0a1f44 0%, #000000 100%);
     color: #fff;
+    overflow-x: hidden;
 }
 
-
-
-
-
-
-
+/* =========================
+   SIMPLE SEARCH BOX
+========================= */
+.search-wrapper {
+    display: flex;
+    max-width: 260px; /* desktop width */
+    width: 100%; /* full width on mobile */
+}
 
 .search-box {
     display: flex;
     align-items: center;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.3);
+    width: 100%;
+    background: #000; /* black background */
+    border: 1px solid #333;
     border-radius: 30px;
     padding: 6px 14px;
-    color: white;
     transition: all 0.3s ease;
 }
 
-    .search-box i {
-        color: #ccc;
-        margin-right: 8px;
-        font-size: 14px;
-    }
 
     .search-box input {
         background: transparent;
         border: none;
         outline: none;
-        color: white;
-        width: 180px;
+        color: #fff;
+        width: 100%;
         font-size: 14px;
     }
 
@@ -44,27 +43,27 @@ body {
             color: #bbb;
         }
 
-    .search-box:focus-within {
-        border-color: #1e90ff;
-        box-shadow: 0 0 8px rgba(30,144,255,0.6);
+
+
+        .search-box:focus-within input {
+            background: #111; /* slightly darker black when typing */
+            color: #fff;
+        }
+
+
+/* =========================
+   RESPONSIVE FIX
+========================= */
+@media (max-width: 991px) {
+    .search-wrapper {
+        max-width: 100%;
+        margin-bottom: 10px;
     }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ---------- HERO IMAGE ---------- */
+/* =========================
+   HERO IMAGE
+========================= */
 .hero-image {
     position: relative;
     width: 100%;
@@ -84,7 +83,12 @@ body {
             transform: scale(1.05);
         }
 
-/* ---------- HERO OVERLAY TEXT ---------- */
+/* =========================
+   HERO OVERLAY TEXT
+========================= */
+/* =========================
+   HERO OVERLAY TEXT FIX
+========================= */
 .hero-overlay {
     position: absolute;
     top: 50%;
@@ -93,36 +97,53 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-width: 600px; /* allow enough space for full text */
+    width: auto; /* let it adjust to content */
 }
 
     .hero-overlay h1 {
-        font-size: 4rem;
+        font-size: clamp(2rem, 5vw, 3rem); /* responsive font size */
         font-weight: 800;
         letter-spacing: 2px;
         color: #ffffff;
-        text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        white-space: normal; /* allow wrapping */
+        overflow: visible; /* show all text */
+        text-overflow: clip; /* no ellipsis */
     }
 
     .hero-overlay p {
-        font-size: 1.5rem;
+        font-size: clamp(1rem, 2.5vw, 1.3rem); /* responsive font size */
         opacity: 0.9;
-        text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+        text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
+        white-space: normal; /* allow wrapping */
+        overflow: visible;
+        text-overflow: clip;
     }
 
-/* ---------- NAVBAR ---------- */
+
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: 70vh; /* keeps consistent height */
+    overflow: hidden;
+    min-height: 400px; /* ensures container doesn't collapse on first load */
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
 .luxury-navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 15px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 15px 30px;
     background: rgba(10, 31, 68, 0.7);
     backdrop-filter: blur(8px);
     color: #fff;
     z-index: 1000;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
     .luxury-navbar a {
@@ -132,11 +153,9 @@ body {
         transition: color 0.3s;
     }
 
-        .luxury-navbar a:hover {
-            color: #0a84ff; /* subtle BMW blue */
-        }
-
-/* ---------- CARDS ---------- */
+/* =========================
+   CARDS
+========================= */
 .card {
     border: none;
     border-radius: 10px;
@@ -148,7 +167,7 @@ body {
 
     .card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
     }
 
 .card-img-top {
@@ -170,7 +189,9 @@ body {
     color: #c0c0c0;
 }
 
-
+/* =========================
+   INTRO LOADING SCREEN
+========================= */
 #intro {
     position: fixed;
     inset: 0;
@@ -207,5 +228,40 @@ body {
         opacity: 0;
         backdrop-filter: blur(0);
         visibility: hidden;
+    }
+}
+
+/* =========================
+   NAVBAR SEARCH RESPONSIVE
+========================= */
+/* Desktop */
+@media (min-width: 992px) {
+    .search-wrapper {
+        max-width: 260px; /* control search box width */
+        flex-shrink: 0; /* prevents shrinking on desktop */
+    }
+}
+
+/* Mobile */
+@media (max-width: 991px) {
+    .search-wrapper {
+        width: 100%;
+    }
+}
+
+/* =========================
+   RESPONSIVE HERO TEXT
+========================= */
+@media (max-width: 360px) {
+    .hero-overlay h1 {
+        font-size: 2rem;
+    }
+
+    .hero-overlay p {
+        font-size: 1rem;
+    }
+
+    .hero-overlay {
+        max-width: 160px;
     }
 }
